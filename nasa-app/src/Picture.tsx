@@ -1,12 +1,17 @@
 import React from 'react'
 
-export const Picture: React.FC = () => {
+interface PictureProps {
+  picture: Picture
+}
+
+export const Picture: React.FC<PictureProps> = ({ picture })=> {
   return (
     <div>
-      <img alt='Nasa picture of the day'/>
+      <img src={picture.hdurl} alt={picture.explanation}/>
       <h2>
-        Title
+        {picture.title}
       </h2>
+      <p>{picture.copyright}</p>
     </div>
   )
 }
